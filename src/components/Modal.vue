@@ -1,29 +1,56 @@
 <template>
   <div class="modal">
     <div class="modal-content">
-      <i @click="this.$emit('close-modal')" class="fa-solid fa-xmark modal-close-btn"></i>
+      <i
+        @click="this.$emit('close-modal')"
+        class="fa-solid fa-xmark modal-close-btn"
+      ></i>
       <div class="modal-content__info--1">
         <h2 class="modal-content__title">{{ modalInfo.title }}</h2>
-        <img class="modal-content__image" :src="modalInfo.picture ? modalInfo.picture : 'https://static.umotive.com/img/product_image_thumbnail_placeholder.png'" :alt="modalInfo.title">
+        <img
+          class="modal-content__image"
+          :src="
+            modalInfo.picture
+              ? modalInfo.picture
+              : 'https://static.umotive.com/img/product_image_thumbnail_placeholder.png'
+          "
+          :alt="modalInfo.title"
+        />
         <p class="modal-content__description">{{ modalInfo.description }}</p>
       </div>
       <div class="modal-content__info--2">
-        <span class="modal-content__price">R$ {{ parseFloat(modalInfo.price).toFixed(2) }}</span>
+        <span class="modal-content__price"
+          >R$ {{ parseFloat(modalInfo.price).toFixed(2) }}</span
+        >
         <div class="modal-content__rating">
           <span v-show="modalInfo.rating">Avaliação: </span>
-          <i v-for="index in parseInt(modalInfo.rating)" :key="index" class="fa-solid fa-star modal-content__rating__star"></i>
+          <i
+            v-for="index in parseInt(modalInfo.rating)"
+            :key="index"
+            class="fa-solid fa-star modal-content__rating__star"
+          ></i>
         </div>
       </div>
       <div class="modal-content__interact">
-        <form @submit.prevent="this.$emit('rate-product', modalInfo.id, rating)" class="form">
+        <form
+          @submit.prevent="this.$emit('rate-product', modalInfo.id, rating)"
+          class="form"
+        >
           <label for="rating">Avalie:</label>
           <select v-model="rating" name="rating" id="rating" required>
             <option disabled value="">Escolha</option>
-            <option v-for="index of 5" :key="index" :value="index">{{ index }} estrelas</option>
+            <option v-for="index of 5" :key="index" :value="index">
+              {{ index }} estrelas
+            </option>
           </select>
           <button class="submit-btn btn" type="submit">Avaliar</button>
         </form>
-        <button @click="this.$emit('delete-product', modalInfo.id)" class="delete-btn btn">Excluir</button>
+        <button
+          @click="this.$emit('delete-product', modalInfo.id)"
+          class="delete-btn btn"
+        >
+          Excluir
+        </button>
       </div>
     </div>
   </div>
@@ -31,21 +58,21 @@
 
 <script>
 export default {
-  name: 'Modal',
+  name: "Modal",
   props: {
-    modalInfo: Object
+    modalInfo: Object,
   },
   data() {
     return {
-      rating: ''
-    }
+      rating: "",
+    };
   },
-  emits: ['close-modal', 'rate-product', 'delete-product']
-}
+  emits: ["close-modal", "rate-product", "delete-product"],
+};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .modal {
   position: fixed;
@@ -160,11 +187,11 @@ export default {
 }
 
 .delete-btn:hover {
-  background-color: rgb(255, 90, 50)
+  background-color: rgb(255, 90, 50);
 }
 
 .delete-btn:active {
-  background-color: rgb(200, 40, 0)
+  background-color: rgb(200, 40, 0);
 }
 
 @media screen and (max-width: 500px) {

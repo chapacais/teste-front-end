@@ -3,23 +3,38 @@
     <div class="item__info">
       <h3 class="item__title">{{ product.title }}</h3>
       <p class="item__description">{{ product.description }}</p>
-      <span class="item__price">R$ {{ parseFloat(product.price).toFixed(2) }}</span>
+      <span class="item__price"
+        >R$ {{ parseFloat(product.price).toFixed(2) }}</span
+      >
       <div class="item__rating">
-        <i v-show="product.rating" v-for="index in parseInt(product.rating)" :key="index" class="fa-solid fa-star item__rating__star"></i>
+        <i
+          v-show="product.rating"
+          v-for="index in parseInt(product.rating)"
+          :key="index"
+          class="fa-solid fa-star item__rating__star"
+        ></i>
       </div>
     </div>
-    <img class="item__thumb" :src="product.thumbnail ? product.thumbnail : 'https://static.umotive.com/img/product_image_thumbnail_placeholder.png'" :alt="product.title">
+    <img
+      class="item__thumb"
+      :src="
+        product.thumbnail
+          ? product.thumbnail
+          : 'https://static.umotive.com/img/product_image_thumbnail_placeholder.png'
+      "
+      :alt="product.title"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Item',
+  name: "Item",
   props: {
-    product: Object
+    product: Object,
   },
-  emits: ['open-modal']
-}
+  emits: ["open-modal"],
+};
 </script>
 
 <style scoped>
@@ -35,11 +50,11 @@ export default {
   height: 140px;
   cursor: pointer;
   background-color: rgb(235, 235, 235);
-  transition: .2s all;
+  transition: 0.2s all;
 }
 
 .item:hover {
-  background-color: rgb(225, 225, 225)
+  background-color: rgb(225, 225, 225);
 }
 
 .item__info {

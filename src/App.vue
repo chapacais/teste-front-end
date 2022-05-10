@@ -1,35 +1,37 @@
 <template>
   <router-view @submit-product="submitProduct" :menu="menuData"></router-view>
 </template>
-  
-<script>
 
+<script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      menuData: []
-    }
+      menuData: [],
+    };
   },
   methods: {
     submitProduct(newProduct, productCategory) {
       this.menuData.map((category, index) => {
-        if(category.category_title === productCategory) {
-          this.menuData[index].products = [...this.menuData[index].products, newProduct];
+        if (category.category_title === productCategory) {
+          this.menuData[index].products = [
+            ...this.menuData[index].products,
+            newProduct,
+          ];
         }
-      })
-    }
+      });
+    },
   },
   created() {
-    fetch('https://front-end-test-app.s3.amazonaws.com/menu.json')
-      .then(res => res.json())
-      .then(data => this.menuData = data)
+    fetch("https://front-end-test-app.s3.amazonaws.com/menu.json")
+      .then((res) => res.json())
+      .then((data) => (this.menuData = data));
   },
-}
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   margin: 0;
@@ -39,7 +41,7 @@ export default {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: rgb(225, 225, 225);
 }
 
@@ -52,7 +54,7 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   cursor: pointer;
 }
@@ -61,7 +63,7 @@ body {
   background-color: rgb(100, 100, 100);
   color: #eee;
   width: 100%;
-  transition: .2s all;
+  transition: 0.2s all;
 }
 
 .submit-btn:hover {

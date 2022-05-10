@@ -13,66 +13,91 @@
       </div>
       <div class="form-control">
         <label for="title">Nome</label>
-        <input v-model="title" placeholder="Pizza de Calabresa" id="title" type="text" required>
+        <input
+          v-model="title"
+          placeholder="Pizza de Calabresa"
+          id="title"
+          type="text"
+          required
+        />
       </div>
       <div class="form-control">
         <label for="description">Descrição</label>
-        <textarea v-model="description" name="description" id="description" cols="30" rows="5" 
-        placeholder="Massa, molho e calabresa" required></textarea>
+        <textarea
+          v-model="description"
+          name="description"
+          id="description"
+          cols="30"
+          rows="5"
+          placeholder="Massa, molho e calabresa"
+          required
+        ></textarea>
       </div>
       <div class="form-control">
         <label for="image">Imagem</label>
-        <input v-model="picture" placeholder="URL da imagem" id="image" type="text">
+        <input
+          v-model="picture"
+          placeholder="URL da imagem"
+          id="image"
+          type="text"
+        />
       </div>
       <div class="form-control">
         <label for="preco">Preço</label>
-        <input v-model="price" placeholder="25.50" id="preco" type="text" required>
+        <input
+          v-model="price"
+          placeholder="25.50"
+          id="preco"
+          type="number"
+          step="0.01"
+          required
+        />
       </div>
-      <input value="Adicionar" class="submit-btn btn" type="submit">
+      <input value="Adicionar" class="submit-btn btn" type="submit" />
     </form>
   </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue';
+import Header from "../components/Header.vue";
 
 export default {
-  name: 'AddProduct',
+  name: "AddProduct",
   components: {
-    Header
+    Header,
   },
   props: {
-    menu: Array
+    menu: Array,
   },
   data() {
     return {
-      title: '',
-      description: '',
-      price: '',
-      picture: '',
-      category: ''
-    }
+      title: "",
+      description: "",
+      price: "",
+      picture: "",
+      category: "",
+    };
   },
   methods: {
     submitNewProduct() {
       let newProduct = {
-        "id": Date.now(),
-        "title": this.title,
-        "description": this.description,
-        "price": parseFloat(this.price),
-        "picture": this.picture,
-        "thumbnail": this.picture
+        id: Date.now(),
+        title: this.title,
+        description: this.description,
+        price: parseFloat(this.price),
+        picture: this.picture,
+        thumbnail: this.picture,
       };
-      this.$emit('submit-product', newProduct, this.category);
-      this.title = '';
-      this.description = '';
-      this.picture = '';
-      this.category = '';
-      this.price = '';
-    }
+      this.$emit("submit-product", newProduct, this.category);
+      this.title = "";
+      this.description = "";
+      this.picture = "";
+      this.category = "";
+      this.price = "";
+    },
   },
-  emits: ['submit-product']
-}
+  emits: ["submit-product"],
+};
 </script>
 
 <style scoped>
@@ -105,7 +130,9 @@ export default {
   font-weight: bold;
 }
 
-.form-control input, .form-control select, .form-control textarea {
+.form-control input,
+.form-control select,
+.form-control textarea {
   border: 1px solid rgba(50, 50, 50, 0.5);
   border-radius: 5px;
   padding: 10px;

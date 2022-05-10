@@ -5,14 +5,22 @@
     <nav class="mobile-nav" v-show="navVisible">
       <i @click="showNav()" class="fa-solid fa-xmark nav-close-btn"></i>
       <ul>
-          <li><router-link class="menu-link" to="/">menu</router-link></li>
-          <li><router-link class="menu-link" to="/addproduct">adicionar produto</router-link></li>
+        <li><router-link class="menu-link" to="/">menu</router-link></li>
+        <li>
+          <router-link class="menu-link" to="/addproduct"
+            >adicionar produto</router-link
+          >
+        </li>
       </ul>
     </nav>
     <nav class="desktop-nav">
       <ul>
-          <li><router-link class="menu-link" to="/">menu</router-link></li>
-          <li><router-link class="menu-link" to="/addproduct">adicionar produto</router-link></li>
+        <li><router-link class="menu-link" to="/">menu</router-link></li>
+        <li>
+          <router-link class="menu-link" to="/addproduct"
+            >adicionar produto</router-link
+          >
+        </li>
       </ul>
     </nav>
   </header>
@@ -20,18 +28,18 @@
 
 <script>
 export default {
-  name: 'Header',
+  name: "Header",
   data() {
     return {
       navVisible: false,
-    }
+    };
   },
   methods: {
     showNav() {
       this.navVisible = !this.navVisible;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -81,7 +89,7 @@ ul {
 .menu-link {
   color: rgb(168, 176, 180);
   text-decoration: none;
-  transition: .2s all;
+  transition: 0.2s all;
 }
 
 .menu-link:hover {

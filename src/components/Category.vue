@@ -3,44 +3,51 @@
     <h2 class="category__title">{{ category.category_title }}</h2>
     <div class="search">
       <label for="search">Search:</label>
-      <input type="search" name="search" @input="filter = $event.target.value">
+      <input
+        type="search"
+        name="search"
+        @input="filter = $event.target.value"
+      />
     </div>
     <ul class="category__list">
       <li v-for="product in categoryFilter" :key="product.id">
-        <Item @open-modal="this.$emit('open-modal', product)" :product="product"/>
+        <Item
+          @open-modal="this.$emit('open-modal', product)"
+          :product="product"
+        />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Item from './Item.vue';
+import Item from "./Item.vue";
 
 export default {
-  name: 'Category',
+  name: "Category",
   components: {
-    Item
+    Item,
   },
   props: {
-    category: Object
+    category: Object,
   },
   data() {
     return {
-      filter: ''
-    }
+      filter: "",
+    };
   },
   computed: {
     categoryFilter() {
-        if(this.filter) {
-            let exp = new RegExp(this.filter.trim(), 'i');
-            return this.category.products.filter(data => exp.test(data.title));
-        } else {
-            return this.category.products;
-        }
-    }
+      if (this.filter) {
+        let exp = new RegExp(this.filter.trim(), "i");
+        return this.category.products.filter((data) => exp.test(data.title));
+      } else {
+        return this.category.products;
+      }
+    },
   },
-  emits: ['open-modal']
-}
+  emits: ["open-modal"],
+};
 </script>
 
 <style scoped>
