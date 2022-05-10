@@ -1,19 +1,15 @@
-# frontend
+# teste-front-end
 
-## Project setup
-```
-npm install
-```
+Aplicação construída em Vue.js.
 
-### Compiles and hot-reloads for development
+## Para executar o projeto:
 ```
-npm run serve
+git clone https://github.com/chapacais/teste-front-end.git
 ```
+Após clonar o repositório:
+- Execute "npm install";
+- Aguarde a instalação de qualquer dependências inclusas no projeto;
+- Inicie a aplicação com "npm run serve"
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Após este processo, abrir aplicação em um navegador em http://localhost:8080/ ou http://192.168.0.253:8080/
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
