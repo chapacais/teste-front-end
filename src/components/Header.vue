@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1 class="header__title">Anota AI Foods</h1>
+    <h1 class="header__title">Airton Food</h1>
     <i @click="showNav()" class="fa-solid fa-bars hamburger-btn"></i>
     <nav class="mobile-nav" v-show="navVisible">
       <i @click="showNav()" class="fa-solid fa-xmark nav-close-btn"></i>
@@ -81,6 +81,11 @@ ul {
 .menu-link {
   color: rgb(168, 176, 180);
   text-decoration: none;
+  transition: .2s all;
+}
+
+.menu-link:hover {
+  color: rgb(212, 212, 212);
 }
 
 .router-link-active {

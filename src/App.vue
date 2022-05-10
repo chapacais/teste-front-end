@@ -61,6 +61,7 @@ body {
   background-color: rgb(100, 100, 100);
   color: #eee;
   width: 100%;
+  transition: .2s all;
 }
 
 .submit-btn:hover {

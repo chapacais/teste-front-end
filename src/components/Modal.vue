@@ -66,6 +66,8 @@ export default {
   background-color: rgb(250, 250, 250);
   box-shadow: 3px 3px 10px 1px black;
   border-radius: 5px;
+  overflow: auto;
+  height: 100%;
 }
 
 .modal-close-btn {
@@ -92,8 +94,7 @@ export default {
 }
 
 .modal-content__image {
-  max-width: 350px;
-  border-radius: 5px;
+  max-width: 500px;
   margin-bottom: 8px;
 }
 
@@ -177,7 +178,7 @@ export default {
   }
 
   .modal-content__image {
-    width: 150px;
+    width: 250px;
     margin-bottom: 5px;
   }
 

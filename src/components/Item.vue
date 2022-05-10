@@ -35,6 +35,7 @@ export default {
   height: 140px;
   cursor: pointer;
   background-color: rgb(235, 235, 235);
+  transition: .2s all;
 }
 
 .item:hover {
